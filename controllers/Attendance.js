@@ -40,7 +40,7 @@ export const fetchMonthlyReport = async (req, res) => {
   const { year, branch, subject } = data;
   try {
     const report = await Attendance.find({ year, branch, subject });
-    console.log(report)
+    console.log(report);
     if (report) res.status(200).json({ report });
     else res.status(500).json({ message: "Report not found" });
   } catch (err) {

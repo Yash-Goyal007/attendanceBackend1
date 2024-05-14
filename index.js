@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import authenticateRoutes from "./routes/Authenticate.js";
 import subjectRoutes from "./routes/Subject.js";
 import attendanceRoutes from "./routes/Attendance.js";
+import leaveRoutes from "./routes/Leave.js";
 import cors from "cors";
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(cors());
 app.use("/auth", authenticateRoutes);
 app.use("/subject", subjectRoutes);
 app.use("/attendance", attendanceRoutes);
+app.use("/leave", leaveRoutes);
 
 //Server and Database Connection
 mongoose
@@ -23,6 +25,6 @@ mongoose
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => {
-    app.listen(8800, () => console.log(`Server listening on Port ${8800}`));
+    app.listen(8800, () => console.log(`Server listening on Port 8800`));
   })
   .catch((error) => console.log(error));

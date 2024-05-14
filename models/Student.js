@@ -18,6 +18,7 @@ const StudentSchema = new mongoose.Schema(
     rollNo: String,
     year: String,
     branch: String,
+    parentsContact: String,
   },
   { timestamps: true }
 );

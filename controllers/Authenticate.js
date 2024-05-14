@@ -25,6 +25,18 @@ const registerStudent = async (req, res) => {
   }
 };
 
+const findStudent = async (req, res) => {
+  const student = req.body;
+  try {
+    const foundStudent = await Student.findOne({ _id: student.student_id });
+    if (foundStudent) res.status(201).json({ foundStudent });
+    else res.status(500).json({ message: "Student not found" });
+  } catch (error) {
+    if (error) throw error;
+    res.status(500).json({ message: "Student not found" });
+  }
+};
+
 const loginUser = async (req, res) => {
   const user = req.body;
   try {
@@ -42,4 +54,4 @@ const loginUser = async (req, res) => {
   }
 };
 
-export { registerTeacher, registerStudent, loginUser };
+export { registerTeacher, registerStudent, loginUser, findStudent };
